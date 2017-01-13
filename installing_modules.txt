@@ -1,0 +1,7 @@
+Strawberry Perl
+---------------
+Start Menu > Strawberry Perl > Tools > CPAN Client
+
+At the cpan> prompt, type:
+
+    install My::Module::Name
