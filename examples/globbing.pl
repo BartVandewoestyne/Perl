@@ -27,3 +27,15 @@ print "@d\n";
 while ($thefile = <*.pl>) {
     print "one of the files is $thefile\n";
 }
+
+## Nonexisting files.
+
+@nonexisting = glob("*nonexisting*");
+print "nonexisting = @nonexisting\n";
+for my $thing (@nonexisting)  # Note that if the glob is empty, we don't execute this.
+{
+    print "thing = $thing\n";
+}
+
+@foo = glob("test.txt");
+print "@foo\n";
