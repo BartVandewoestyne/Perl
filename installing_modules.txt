@@ -6,6 +6,10 @@ At the cpan> prompt, type:
 
     install My::Module::Name
 
+Or maybe (as explained in the Strawberry Perl readme), you can just type:
+
+  c:\> cpan Module::Name
+
 
 To get a list of all modules (check what exactly we need)
 ---------------------------------------------------------
