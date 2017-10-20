@@ -5,3 +5,16 @@ Start Menu > Strawberry Perl > Tools > CPAN Client
 At the cpan> prompt, type:
 
     install My::Module::Name
+
+
+To get a list of all modules (check what exactly we need)
+---------------------------------------------------------
+The command
+
+  $ perldoc -q installed
+
+explains how it can be done:
+
+  $ cpan -l
+
+  $ perldoc perllocal
