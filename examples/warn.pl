@@ -22,3 +22,5 @@ say "Doing stuff after giving a warning.";
 # If you leaving out the trailing new-line, then the output will include the
 # name of the file and the line number where the warn function was called.
 warn "Slight problem reported with warn, but without newline.";
+
+say "End of script.";
