@@ -1,8 +1,16 @@
 #!/usr/bin/perl
+#
+# References:
+#
+#   [perldoc] http://perldoc.perl.org/functions/system.html
 
-my $result = system("ls");
-print("$result\n");
+my $command = "ls";
 
+my $result = system($command);
+print("system(\"$command\") returned $result.\n");
+
+# A return value of -1 indicates a failure to start the program or an error
+# of the wait(2) system call (inspect $! for the reason).
 if ($? == -1) {
     print "failed to execute: $!\n";
 }
