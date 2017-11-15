@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-use 5.010;
+use 5.010;  # Commenting this out gives "Undefined subroutine &main::say ..."
 use strict;
 use warnings;
 
