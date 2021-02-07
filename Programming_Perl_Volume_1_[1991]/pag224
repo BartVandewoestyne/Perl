@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+$label = '.';
+while (<STDIN>) {
+    if (/:$/) {
+	$label = $`;
+    } else {
+	print $label, '/', $_;
+    }
+}

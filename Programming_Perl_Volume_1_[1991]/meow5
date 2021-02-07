@@ -1,0 +1,4 @@
+#!/usr/bin/perl
+while (<>) {
+	print unless $_ eq "\n";
+}

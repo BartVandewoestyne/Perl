@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+@rollerskaters=('adam', 'dale', 'jodee', 'marji', 'merlyn');
+@pilots=('geoff', 'jim', 'merlyn', 'rick');
+local(%mark);
+grep($mark{$_}++, @rollerskaters);
+@crazy=grep($mark{$_}, @pilots);
+print "@crazy\n";

@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+while (<>) {
+    print if /peice/;
+    print if /freind/;
+    print if /teh/;
+}

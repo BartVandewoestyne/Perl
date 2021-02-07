@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+setpwent;
+while (@user=getpwent) {
+	($name, $passwd, $uid, $gid, $quota, $comment,
+	    $gcos, $dir, $shell) = @user;
+	if (-e "$dir/.rnlast") {
+	    print " recently" if -M _ < 7;
+	    print "\n";
+	}
+}
+endpwent;

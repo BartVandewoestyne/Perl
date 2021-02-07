@@ -1,0 +1,22 @@
+#!/usr/bin/perl
+
+# First extract the include lines from each file.
+
+foreach $file (@ARGV) {
+    open(FILE, $file) || warn "Can't open $file: $!\n";
+    while (<FILE>) {
+	if (/^#include\s+["<]([^">]*)[">"/) {
+		$included = $1;
+		$includes{$file} .= $included . ' ';
+	}
+    }
+}
+
+# Now print them out in sorted order.
+
+foreach $target (sort keys(%includes)) {
+    $dependencies = $includes{$target};
+    foreach $dependency (splt(/ /, $dependencies)) {
+	print "$target: $dependency\n";
+    }
+}

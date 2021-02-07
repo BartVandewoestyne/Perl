@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+$/ = "";			# Enable paragraph mode.
+$* = 1;				# Enable multi-line patterns.
+while (<>) {
+    s/-\n//g;			# Dehyphenate hyphenations.
+    print if /\bprosperous\b/;
+}

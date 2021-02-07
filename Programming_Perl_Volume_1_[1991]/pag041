@@ -1,0 +1,47 @@
+#!/usr/bin/perl
+
+	# Set configuration parameters.
+
+$ANNUAL_PAY_RATE = 52 * 5; 	# That's 5 shekels per week.
+
+	# First open my database. Complain if unable.
+
+open(STUFF, "stuff") || die "Can't open stuff: $!\n";
+
+	# Now process each line.
+
+while (<STUFF>) {
+
+	# Split the record into its fields.
+
+	($beastie, $noses, $hazard, $premium, $servants)
+		= split(/:/, $_);
+
+	# Derive some fields.
+
+	$totprem = $premium * $noses;
+	$cost = $totprem + $servants * $ANNUAL_PAY_RATE;
+
+	# Write a formatted record to STDOUT.
+
+	write;
+}
+exit;
+
+################################################################
+
+	# Here is the top of form format, with column headings.
+
+format STDOUT_TOP =
+			Job's Stuff, Inc.
+Beastie	   Nose	 Insured       Premium 	  Servants  Total Est.
+Name	  Count	 Against    Each    Total           Yearly Cost
+-------   ------ --------   ---- -------- --------  -----------
+.
+
+	# Here is the format for each record.
+
+format STDOUT=
+@<<<<<<<< @##### @<<<<<<<<<@#.## @####.##  @>>>>>>  @#######.##
+$beastie, $noses,$hazard,$premium,$totprem,$servants,$cost
+.

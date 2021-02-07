@@ -1,0 +1,3 @@
+#!/usr/bin/perl -p
+s/([^c])ei/$1ie/g;
+s/\bthier\b/their/g;

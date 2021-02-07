@@ -1,0 +1,4 @@
+#!/usr/bin/perl -p
+s/\bfreind\b/friend/g;
+s/\bpeice\b/piece/g;
+s/\bteh\b/the/g;

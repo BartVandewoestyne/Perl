@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+sub case {
+    local(*assoc,$_) = @_;
+    for (split(/\n/)) {
+	/^(\S+)\s+(.*)/;
+	for (eval $1) {
+	    $assoc{$_} = $2;
+	}
+    }
+}
+&case(*foo,<<'ENDCASE');
+0..255			print "something else\n";
+ord('a')..ord('z')	print "a lowercase letter\n";
+ord('A')..ord('Z')	print "an uppercase letter\n";
+ord('0')..ord('9')	print "a digit\n";
+ENDCASE
+
+for (split(//,"Just another 4 perl hackers,")) {
+    print "$_ is ";
+    eval $foo{ord($_)};
+}

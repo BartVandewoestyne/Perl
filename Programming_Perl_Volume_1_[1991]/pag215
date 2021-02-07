@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+$vector = "\000" x 256;
+vec($vector,1,rand(256*8)) = 1;
+undef $found;
+if ($vector =~ /[^\000]/) {
+    for (length($`)*8..length($`)*8+7) {
+	$found = $_, last if vec($vector,$_,1);
+    }
+}
+print "found the random bit at $found\n";

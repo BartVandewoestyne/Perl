@@ -1,0 +1,4 @@
+#!/usr/bin/perl
+s/\\(.)/"\376".ord($1)."\377"/eg;
+s/foo/bar/g;
+s/\376(\d+)\377/pack(C,$1)/eg;

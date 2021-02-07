@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+sub enum {
+	local($_) = @_;
+	local(@specs) = split(/,/);
+	local($val);
+	for (@specs) {
+		if (/=/) {
+		$val = eval $_;
+		} else {
+		    eval $_ . ' = ++$val';
+		}
+	}
+}
+
+&enum(<<'EOL');
+	$RED, $GREEN, $BLUE,
+	$CYAN='a', $MAGENTA, $YELLOW,
+	$BLACK=-1
+EOL
+print "$RED $GREEN $BLUE $CYAN $MAGENTA $YELLOW $BLACK\n";

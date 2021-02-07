@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+foreach $arg (@ARGV) {
+    print $space, $arg;
+    $space = ' ';
+}
+print "\n";

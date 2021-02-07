@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+while (<STDIN>) {
+    # $_=... not needed because the data is already in $_
+    s/"/\\"/g;
+    print eval qq/"$_"/;
+}

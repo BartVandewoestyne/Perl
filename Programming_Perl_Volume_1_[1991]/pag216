@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+unless (fork) { # this is the child
+    unless (fork) { # this is the child's child
+	sleep 1 until getppid == 1;
+	for (1..1000) {
+	    system "foo $_";
+	}
+	exit 0;
+    }
+    # first child exits quickly
+    exit 0;
+}
+wait; # parent reaps first child quickly

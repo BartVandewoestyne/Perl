@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+@rollerskaters=('adam', 'dale', 'jodee', 'marji', 'merlyn');
+@pilots=('geoff', 'jim', 'merlyn', 'rick');
+local(%mark);
+grep($mark{$_}++, @rollerskaters);
+@nonskatingpilots=grep(!$mark{$_}, @pilots);
+print "@nonskatingpilots\n";
+

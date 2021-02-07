@@ -1,0 +1,4 @@
+#!/usr/bin/perl
+while ($_=<ARGV>) {
+	print $_;
+}

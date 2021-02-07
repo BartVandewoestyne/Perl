@@ -1,0 +1,4 @@
+#!/usr/bin/perl
+foreach $i (1..10) {
+    print "$i\n";
+}

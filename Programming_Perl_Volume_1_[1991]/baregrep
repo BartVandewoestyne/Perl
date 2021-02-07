@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+$pattern = shift(@ARGV);	# Extract first argument into $pattern.
+while (<>) {			# Treat the rest of @ARGV as filenames.
+	if (/$pattern/) {	# If the pattern matches...
+	   print;
+	}
+}

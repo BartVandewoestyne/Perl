@@ -1,0 +1,4 @@
+#!/usr/bin/perl
+while (<>) {
+	chop;				# Remove newline.
+	print $_,"\n" if $_ ne "";	# Print non-null lines.

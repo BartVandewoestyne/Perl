@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+while (<>) {
+	chop;
+	if ($_ ne "") {
+		print $_,"\n";
+	}
+}

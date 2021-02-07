@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+$pid = open(LAST, "last|");
+while (<LAST>) {
+    if (/merlyn/) {
+	print;
+	kill -9, $pid;
+	close(LAST);
+	}
+}

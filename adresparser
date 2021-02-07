@@ -1,0 +1,60 @@
+#!/usr/bin/perl
+
+($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime(time);
+$mon += 1;
+$year += 1900;
+$thisday = (Sun,Mon,Tue,Wed,Fri,Sat)[(localtime)[6]];
+
+open (FILEHANDLE, "/home/mc303/adresboek.ldif");
+open (WRITEFILE, ">/home/mc303/homepage/html/adres.html");
+
+print WRITEFILE "<HTML>";
+print WRITEFILE "<HEAD>";
+print WRITEFILE "<TITLE>MC303's friends</TITLE>";
+print WRITEFILE "<link rel=stylesheet type=\"text/css\" href=\"gen_style.css\">";
+print WRITEFILE "</HEAD>";
+
+print WRITEFILE "<BODY>";
+print WRITEFILE "<H1>mc303's addressbook</H1>";
+print WRITEFILE "<HR>";
+
+while ( $line = <FILEHANDLE>) {
+	if ($line =~ /^cn: (.*)/){
+	$name = $1;
+	}
+	if ($line =~ /^streetaddress: (.*)/){
+	$street = $1;
+	}
+	if ($line =~ /^postalcode: (.*)/){
+	$postalcode = $1;
+	}
+	if ($line =~ /^locality: (.*)/) {
+	$locality = $1;
+	} 
+	if ($line =~ /^mail: (.*)/) {
+	$mail = $1;
+	}
+	if ($line =~ /^\n$/) {
+	if ($name) {
+		print WRITEFILE "$name<BR>\n";}
+	if ($street) {
+		print WRITEFILE "$street<BR>\n";}
+	if ($postalcode) {
+		print WRITEFILE "$postalcode ";}
+	if ($locality) {
+		print WRITEFILE "$locality<BR>\n";}
+	if ($mail) {
+		print WRITEFILE "<A HREF=\"mailto:$mail\">$mail</A><BR>\n";}
+	$name = "";
+	$street = "";
+	$postalcode = "";
+	$locality = "";
+	$mail = "";
+	print WRITEFILE "<BR>\n";
+	}
+}
+
+print WRITEFILE "<HR>";
+print WRITEFILE "<P align=right>This address list was automatically extracted from my Netscape Address Book with a self written Perl script on $thisday $mday/$mon/$year, $hour:$min:$sec.</P>"; 
+print WRITEFILE "</BODY>";
+print WRITEFILE "</HTML>";

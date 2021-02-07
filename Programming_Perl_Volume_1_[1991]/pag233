@@ -1,0 +1,5 @@
+#!/usr/bin/perl
+foreach (@ARGV) {
+    last if $_ eq "--";
+    print "$_ is a switch\n" if /^-/;
+}

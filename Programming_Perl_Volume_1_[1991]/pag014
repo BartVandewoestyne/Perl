@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+foreach $i (0 .. $#ARGV) {
+	print $ARGV[$i];
+	if ($i == $#ARGV) {
+	    print "\n";
+	}
+	else {
+	    print " ";
+	}
+}

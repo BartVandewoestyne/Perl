@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+while (@ARGV) {
+    $file = shift @ARGV;
+    push(@textfiles, $file) if -T $file;
+}
+print join(' ',@textfiles), "\n";
